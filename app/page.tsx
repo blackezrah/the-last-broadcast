@@ -6,7 +6,7 @@ export default function TheLastBroadcastHomepage() {
       {/* Atmospheric Background */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-screen">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-40" />
+        <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_18%_24%,rgba(255,255,255,0.22)_0_0.7px,transparent_0.9px),radial-gradient(circle_at_72%_46%,rgba(255,255,255,0.16)_0_0.6px,transparent_0.85px),radial-gradient(circle_at_41%_78%,rgba(255,255,255,0.12)_0_0.5px,transparent_0.75px)] [background-size:38px_38px,54px_54px,29px_29px]" />
       </div>
 
       {/* Spider Silk Thread */}
@@ -139,30 +139,46 @@ export default function TheLastBroadcastHomepage() {
 
         <div className="grid gap-px overflow-hidden rounded-[2rem] border border-white/10 bg-white/10">
           {[
-            "Heavy Like Heaven",
-            "Only the Dark Knows",
-            "The Shape of My Undoing",
-            "Darkness, Familiar",
-          ].map((title, index) => (
-            <div
-              key={title}
-              className="group flex items-center justify-between bg-[#070707] px-8 py-8 transition hover:bg-white/[0.03]"
-            >
-              <div>
-                <div className="mb-2 text-[10px] uppercase tracking-[0.35em] text-white/20">
-                  Broadcast 00{index + 2}
+            { title: "Heavy Like Heaven", href: "/broadcasts/heavy-like-heaven" },
+            { title: "Only the Dark Knows" },
+            { title: "The Shape of My Undoing" },
+            { title: "Darkness, Familiar" },
+          ].map((item, index) => {
+            const content = (
+              <>
+                <div>
+                  <div className="mb-2 text-[10px] uppercase tracking-[0.35em] text-white/20">
+                    Broadcast 00{index + 2}
+                  </div>
+
+                  <div className="font-serif text-2xl text-white/85 md:text-4xl">
+                    {item.title}
+                  </div>
                 </div>
 
-                <div className="font-serif text-2xl text-white/85 md:text-4xl">
-                  {title}
+                <div className="text-white/20 transition group-hover:text-white/60">
+                  →
                 </div>
-              </div>
+              </>
+            )
 
-              <div className="text-white/20 transition group-hover:text-white/60">
-                →
+            return item.href ? (
+              <Link
+                key={item.title}
+                href={item.href}
+                className="group flex items-center justify-between bg-[#070707] px-8 py-8 transition hover:bg-white/[0.03]"
+              >
+                {content}
+              </Link>
+            ) : (
+              <div
+                key={item.title}
+                className="group flex items-center justify-between bg-[#070707] px-8 py-8 transition hover:bg-white/[0.03]"
+              >
+                {content}
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </section>
 

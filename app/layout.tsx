@@ -37,7 +37,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable} relative bg-background`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${cormorant.variable} relative bg-background`}
+    >
       <body className="font-sans antialiased bg-background text-foreground overflow-x-hidden">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
