@@ -67,7 +67,7 @@ export default function TheLastBroadcastHomepage() {
           “Only the dark knows.”
         </div>
 
-        <div className="pointer-events-none absolute bottom-[22%] left-[28%] text-white/10 blur-[0.2px]">
+        <div className="pointer-events-none absolute bottom-[14%] left-[28%] text-white/10 blur-[0.2px]">
           “there is still someone in here.”
         </div>
       </section>
@@ -89,7 +89,7 @@ export default function TheLastBroadcastHomepage() {
           </div>
 
           <div className="hidden text-sm text-white/25 md:block">
-            Broadcast 001
+            BROADCAST 001
           </div>
         </div>
 
@@ -139,7 +139,10 @@ export default function TheLastBroadcastHomepage() {
 
         <div className="grid gap-px overflow-hidden rounded-[2rem] border border-white/10 bg-white/10">
           {[
+            { title: "If This Is Living", href: "/broadcasts/if-this-is-living" },
             { title: "Heavy Like Heaven", href: "/broadcasts/heavy-like-heaven" },
+            { title: "The Half-Life of You", href: "/broadcasts/the-half-life-of-you" },
+            { title: "The Trespass", href: "/broadcasts/the-trespass" },
             { title: "Only the Dark Knows" },
             { title: "The Shape of My Undoing" },
             { title: "Darkness, Familiar" },
@@ -148,7 +151,7 @@ export default function TheLastBroadcastHomepage() {
               <>
                 <div>
                   <div className="mb-2 text-[10px] uppercase tracking-[0.35em] text-white/20">
-                    Broadcast 00{index + 2}
+                    BROADCAST {String(index + 1).padStart(3, "0")}
                   </div>
 
                   <div className="font-serif text-2xl text-white/85 md:text-4xl">

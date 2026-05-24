@@ -812,7 +812,7 @@
 
 .haunted-field::before {
   inset: 12% -8%;
-  opacity: 0.48;
+  opacity: 0.72;
 }
 
 .confession-field::before {
@@ -949,6 +949,524 @@
   opacity: 0.65;
 }
 
+/* The Half-Life of You */
+@keyframes half-life-void-breathe {
+  0%, 100% {
+    opacity: 0.52;
+    transform: translate3d(-1%, 0, 0) scale(1);
+  }
+  48% {
+    opacity: 0.76;
+    transform: translate3d(1.4%, -0.7%, 0) scale(1.035);
+  }
+}
+
+@keyframes half-life-smoke-drift {
+  0%, 100% {
+    opacity: 0.18;
+    transform: translate3d(-1.5%, 1.2%, 0);
+  }
+  50% {
+    opacity: 0.30;
+    transform: translate3d(1.8%, -1.5%, 0);
+  }
+}
+
+@keyframes half-life-static {
+  0%, 100% {
+    opacity: 0.046;
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    opacity: 0.068;
+    transform: translate3d(-1%, 0.7%, 0);
+  }
+  40% {
+    opacity: 0.038;
+    transform: translate3d(0.6%, -0.8%, 0);
+  }
+  61% {
+    opacity: 0.078;
+    transform: translate3d(1.4%, 0.4%, 0);
+  }
+  82% {
+    opacity: 0.05;
+    transform: translate3d(-0.7%, -0.4%, 0);
+  }
+}
+
+@keyframes half-life-thread-drift {
+  0%, 100% {
+    opacity: 0.58;
+    transform: translate3d(-1.2px, 0, 0);
+  }
+  48% {
+    opacity: 0.82;
+    transform: translate3d(1.4px, 0, 0);
+  }
+}
+
+@keyframes half-life-thread-glint {
+  0% {
+    stroke-dashoffset: 720;
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.18;
+  }
+  29% {
+    opacity: 0.42;
+  }
+  47% {
+    opacity: 0.04;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes half-life-line-breath {
+  0%, 100% {
+    opacity: 0.76;
+    filter: blur(0.55px);
+  }
+  50% {
+    opacity: 0.92;
+    filter: blur(0.7px);
+  }
+}
+
+@keyframes half-life-invasive-breath {
+  0%, 100% {
+    opacity: 0.86;
+    filter: blur(0.18px);
+    text-shadow:
+      0 0 1px oklch(0.78 0.008 230 / 0.32),
+      0 0 26px oklch(0.54 0.025 235 / 0.10),
+      0 26px 70px oklch(0.01 0.004 260 / 0.98);
+  }
+  45% {
+    opacity: 0.98;
+    filter: blur(0.05px);
+    text-shadow:
+      0 0 1px oklch(0.86 0.007 230 / 0.40),
+      0 0 34px oklch(0.60 0.025 235 / 0.16),
+      0 30px 82px oklch(0.01 0.004 260 / 1);
+  }
+  47% {
+    opacity: 0.74;
+  }
+  49% {
+    opacity: 0.96;
+  }
+}
+
+@keyframes half-life-exposure-pulse {
+  0%, 100% {
+    opacity: 0.28;
+    transform: scale(0.96);
+  }
+  46% {
+    opacity: 0.62;
+    transform: scale(1.02);
+  }
+  48% {
+    opacity: 0.24;
+  }
+  50% {
+    opacity: 0.54;
+  }
+}
+
+.half-life-page {
+  --background: oklch(0.028 0.004 260);
+  background: oklch(0.018 0.003 260);
+  color: oklch(0.74 0.007 235 / 0.78);
+}
+
+.half-life-page .editorial-content {
+  grid-column: 1 / -1;
+}
+
+.half-life-of-you {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 0 clamp(1.5rem, 4vw, 5rem);
+  background:
+    radial-gradient(ellipse 58% 24% at 50% 4%, oklch(0.13 0.012 245 / 0.20), transparent 70%),
+    radial-gradient(ellipse 30% 16% at 62% 34%, oklch(0.22 0.018 230 / 0.08), transparent 72%),
+    linear-gradient(180deg, oklch(0.018 0.003 260), oklch(0.014 0.003 260) 42%, oklch(0.01 0.002 260));
+}
+
+.half-life-atmosphere,
+.half-life-shadowfield,
+.half-life-smoke,
+.half-life-noise,
+.half-life-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.half-life-atmosphere {
+  z-index: 0;
+  overflow: hidden;
+  contain: paint;
+  isolation: isolate;
+  transform: translateZ(0);
+}
+
+.half-life-shadowfield {
+  inset: -8% -12%;
+  background:
+    radial-gradient(ellipse 28% 17% at 48% 18%, oklch(0.42 0.02 232 / 0.055), transparent 72%),
+    radial-gradient(ellipse 40% 24% at 22% 48%, oklch(0.20 0.014 245 / 0.060), transparent 74%),
+    radial-gradient(ellipse 36% 22% at 78% 66%, oklch(0.26 0.014 232 / 0.046), transparent 74%),
+    radial-gradient(ellipse 86% 58% at 50% 50%, transparent 42%, oklch(0.005 0.002 260 / 0.70) 100%);
+  filter: blur(28px);
+  mix-blend-mode: screen;
+  animation: half-life-void-breathe 28s ease-in-out infinite;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+.half-life-smoke {
+  inset: -18% -14%;
+  background:
+    radial-gradient(ellipse 64% 18% at 42% 30%, oklch(0.56 0.014 228 / 0.040), transparent 74%),
+    radial-gradient(ellipse 54% 22% at 63% 58%, oklch(0.45 0.012 240 / 0.034), transparent 78%),
+    transparent url("data:image/svg+xml,%3Csvg viewBox='0 0 360 360' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.032' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.56'/%3E%3C/svg%3E") repeat;
+  filter: blur(18px);
+  mix-blend-mode: screen;
+  opacity: 0.14;
+  animation: half-life-smoke-drift 42s ease-in-out infinite;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+.half-life-noise {
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    transparent url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.48'/%3E%3C/svg%3E") repeat;
+  mix-blend-mode: screen;
+  opacity: 0.042;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+.half-life-vignette {
+  z-index: 4;
+  background:
+    radial-gradient(ellipse 70% 54% at 50% 42%, transparent 22%, oklch(0.008 0.002 260 / 0.62) 82%),
+    linear-gradient(90deg, oklch(0.006 0.002 260 / 0.78), transparent 22%, transparent 78%, oklch(0.006 0.002 260 / 0.78));
+  transform: translateZ(0);
+}
+
+.half-life-thread {
+  position: absolute;
+  top: 34vh;
+  left: 50%;
+  z-index: 1;
+  width: min(22vw, 10rem);
+  height: calc(100% - 16vh);
+  min-height: 6100px;
+  pointer-events: none;
+  transform: translateX(-50%);
+  animation: half-life-thread-drift 34s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.half-life-thread svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.half-life-thread-shadow,
+.half-life-thread-core,
+.half-life-thread-glint {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.half-life-thread-shadow {
+  stroke: oklch(0.78 0.008 235 / 0.11);
+  stroke-width: 1.2;
+  stroke-dasharray: 170 82 22 240 7 310 140 420;
+}
+
+.half-life-thread-core {
+  stroke: oklch(0.84 0.006 235 / 0.22);
+  stroke-width: 0.62;
+  stroke-dasharray: 148 96 4 360 220 170 2 520 88 300;
+  filter: drop-shadow(0 0 4px oklch(0.66 0.012 230 / 0.10));
+}
+
+.half-life-thread-glint {
+  stroke: oklch(0.94 0.004 230 / 0.40);
+  stroke-width: 0.72;
+  stroke-dasharray: 4 620 2 840 11 1060;
+  animation: half-life-thread-glint 18s linear infinite;
+}
+
+.half-life-section {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 62vh;
+  align-items: center;
+}
+
+.half-life-tight {
+  min-height: 44vh;
+  padding-block: 12vh;
+}
+
+.half-life-normal {
+  padding-block: 18vh;
+}
+
+.half-life-wide {
+  min-height: 82vh;
+  padding-block: 24vh;
+}
+
+.half-life-abyss {
+  min-height: 108vh;
+  padding-block: 34vh;
+}
+
+.half-life-left {
+  justify-content: flex-start;
+}
+
+.half-life-center {
+  justify-content: center;
+}
+
+.half-life-right {
+  justify-content: flex-end;
+}
+
+.half-life-stanza {
+  position: relative;
+  width: min(100%, 46rem);
+  display: grid;
+  gap: clamp(0.85rem, 1.5vw, 1.45rem);
+  isolation: isolate;
+}
+
+.half-life-center .half-life-stanza {
+  text-align: center;
+  justify-items: center;
+}
+
+.half-life-right .half-life-stanza {
+  text-align: right;
+  justify-items: end;
+}
+
+.half-life-line {
+  position: relative;
+  max-width: min(100%, 44rem);
+  color: oklch(0.70 0.006 235 / 0.68);
+  font-family: var(--font-serif);
+  font-size: clamp(1.72rem, 4.25vw, 4.8rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: 0.025em;
+  text-wrap: balance;
+  text-shadow:
+    0 0 18px oklch(0.52 0.012 235 / 0.08),
+    0 28px 76px oklch(0.005 0.002 260 / 0.96);
+  animation: half-life-line-breath 11s ease-in-out infinite;
+}
+
+.half-life-line::before {
+  content: "";
+  position: absolute;
+  inset: -0.42em -0.95em;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse at center,
+      oklch(0.014 0.003 260 / 0.99) 0%,
+      oklch(0.014 0.003 260 / 0.92) 46%,
+      oklch(0.014 0.003 260 / 0.54) 68%,
+      transparent 86%
+    );
+  filter: blur(6px);
+  opacity: 0.92;
+}
+
+.half-life-line-small {
+  font-family: var(--font-sans);
+  font-size: clamp(0.62rem, 1vw, 0.78rem);
+  line-height: 1.7;
+  color: oklch(0.64 0.006 235 / 0.38);
+}
+
+.half-life-poem-source {
+  position: relative;
+  max-width: min(100%, 44rem);
+  margin: 0;
+  color: oklch(0.70 0.006 235 / 0.68);
+  font-family: var(--font-editorial-serif), var(--font-serif), "Cormorant Garamond", "Times New Roman", serif;
+  font-size: clamp(1.72rem, 4.25vw, 4.8rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  white-space: pre-wrap;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: balance;
+  text-shadow:
+    0 0 18px oklch(0.52 0.012 235 / 0.08),
+    0 28px 76px oklch(0.005 0.002 260 / 0.96);
+}
+
+.half-life-invasion {
+  color: oklch(0.82 0.006 230 / 0.86);
+  filter: blur(0.18px);
+  letter-spacing: 0.035em;
+  text-shadow:
+    0 0 1px oklch(0.78 0.008 230 / 0.32),
+    0 0 26px oklch(0.54 0.025 235 / 0.10),
+    0 26px 70px oklch(0.01 0.004 260 / 0.98);
+  animation: half-life-invasive-breath 8.5s ease-in-out infinite;
+}
+
+.half-life-scrolling .half-life-shadowfield,
+.half-life-scrolling .half-life-smoke,
+.half-life-scrolling .half-life-thread,
+.half-life-scrolling .half-life-thread-glint,
+.half-life-scrolling .half-life-line,
+.half-life-scrolling .half-life-invasion {
+  animation-play-state: paused;
+}
+
+.half-life-title {
+  max-width: 68rem;
+  font-size: clamp(3.2rem, 10vw, 10.8rem);
+  line-height: 0.82;
+  letter-spacing: 0.035em;
+  color: oklch(0.80 0.006 230 / 0.82);
+}
+
+.half-life-opening {
+  min-height: 118vh;
+}
+
+.half-life-opening .half-life-stanza {
+  width: min(100%, 74rem);
+  gap: 2rem;
+}
+
+.half-life-pulse::before,
+.half-life-fracture::before,
+.half-life-dissociation::before,
+.half-life-ending::before {
+  content: "";
+  position: absolute;
+  inset: 18% 4%;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 34% 16% at 50% 52%, oklch(0.68 0.012 230 / 0.11), transparent 74%),
+    radial-gradient(ellipse 54% 30% at 50% 50%, oklch(0.12 0.008 245 / 0.11), transparent 80%);
+  filter: blur(24px);
+  mix-blend-mode: screen;
+  animation: half-life-exposure-pulse 10s ease-in-out infinite;
+  transform: translateZ(0);
+}
+
+.half-life-impact-field::before {
+  inset: 28% 14%;
+  background:
+    radial-gradient(ellipse 24% 12% at 50% 50%, oklch(0.82 0.008 230 / 0.15), transparent 72%),
+    radial-gradient(ellipse 60% 22% at 50% 50%, oklch(0.10 0.008 245 / 0.16), transparent 80%);
+  animation-duration: 6.5s;
+}
+
+.half-life-fracture .half-life-line:nth-child(2) {
+  transform: translateX(clamp(1rem, 5vw, 4rem));
+}
+
+.half-life-dissociation .half-life-line:nth-child(2) {
+  transform: translateX(clamp(-2rem, -4vw, -1rem));
+}
+
+.half-life-dissociation .half-life-line:nth-child(3) {
+  transform: translateX(clamp(1.25rem, 6vw, 5rem));
+}
+
+.half-life-fragmented .half-life-stanza {
+  gap: clamp(8rem, 18vw, 16rem);
+}
+
+.half-life-fragmented .half-life-line {
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  color: oklch(0.58 0.006 235 / 0.42);
+  font-family: var(--font-sans);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.half-life-ending {
+  min-height: 122vh;
+}
+
+.half-life-ending .half-life-line {
+  max-width: 58rem;
+  font-size: clamp(2.4rem, 6.8vw, 7.6rem);
+  line-height: 0.98;
+}
+
+.half-life-dead-space {
+  position: relative;
+  z-index: 2;
+  height: 150vh;
+  background:
+    radial-gradient(ellipse 35% 12% at 50% 0%, oklch(0.08 0.006 245 / 0.18), transparent 72%),
+    linear-gradient(180deg, transparent, oklch(0.006 0.002 260) 28%);
+}
+
+@media (max-width: 767px) {
+  .half-life-of-you {
+    padding-inline: 1.35rem;
+  }
+
+  .half-life-thread {
+    left: 78%;
+    width: 7rem;
+    opacity: 0.58;
+  }
+
+  .half-life-section {
+    min-height: 70vh;
+  }
+
+  .half-life-wide {
+    min-height: 90vh;
+  }
+
+  .half-life-abyss {
+    min-height: 112vh;
+  }
+
+  .half-life-right .half-life-stanza,
+  .half-life-left .half-life-stanza {
+    text-align: left;
+    justify-items: start;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .haunted-line,
   .ghost-text,
@@ -958,8 +1476,62 @@
   .ember-text,
   .emotional-field::before,
   .emotional-field::after,
-  .emotional-haze {
+  .emotional-haze,
+  .half-life-shadowfield,
+  .half-life-smoke,
+  .half-life-noise,
+  .half-life-thread,
+  .half-life-thread-glint,
+  .half-life-line,
+  .half-life-invasion,
+  .half-life-pulse::before,
+  .half-life-fracture::before,
+  .half-life-dissociation::before,
+  .half-life-ending::before {
     animation: none;
+  }
+}
+
+/* Broadcast global navigation */
+.broadcastReturnNav {
+  position: fixed;
+  top: 28px;
+  left: 32px;
+  z-index: 9999;
+  pointer-events: auto;
+  opacity: 0.72;
+  color: rgba(235,235,225,0.78);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  text-decoration: none;
+  text-transform: uppercase;
+  isolation: isolate;
+}
+
+.broadcastReturnNavLink {
+  color: inherit;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.broadcastReturnNavLink:hover,
+.broadcastReturnNavLink:focus-visible {
+  color: rgba(245,245,238,0.92);
+}
+
+.broadcastReturnNavLink:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 0.45rem;
+  text-decoration-thickness: 1px;
+}
+
+@media (max-width: 767px) {
+  .broadcastReturnNav {
+    top: 20px;
+    left: 20px;
   }
 }
 
