@@ -143,6 +143,8 @@ export default function TheLastBroadcastHomepage() {
             { title: "Heavy Like Heaven", href: "/broadcasts/heavy-like-heaven" },
             { title: "The Half-Life of You", href: "/broadcasts/the-half-life-of-you" },
             { title: "The Trespass", href: "/broadcasts/the-trespass" },
+            { title: "Your Love, Like Mold", href: "/broadcasts/your-love-like-mold" },
+            { title: "Black Water Lullaby", href: "/broadcasts/black-water-lullaby" },
             { title: "Only the Dark Knows" },
             { title: "The Shape of My Undoing" },
             { title: "Darkness, Familiar" },

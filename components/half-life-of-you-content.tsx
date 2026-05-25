@@ -12,7 +12,15 @@ function getSectionSpacing(index: number, stanza: string): 'normal' | 'wide' | '
     lower.includes('then without warning') ||
     lower.includes('not as memory') ||
     lower.includes('as impact') ||
-    lower.includes('and maybe that’s the half-life of you')
+    lower.includes('and maybe that’s the half-life of you') ||
+    lower.includes('try being the fucking home') ||
+    lower.includes('another wound dressed up as concern') ||
+    lower.includes('i was a person') ||
+    lower.includes('the river wore the moon') ||
+    lower.includes('in the black water') ||
+    lower.includes('you looked like death') ||
+    lower.includes('cold inside my ribs') ||
+    lower.includes('to the beautiful ruin')
   ) {
     return 'vast'
   }
@@ -37,7 +45,15 @@ function getVariant(stanza: string): 'default' | 'large' | 'whisper' | 'compress
     normalized.includes('“why so sad, my love?”') ||
     normalized.includes('not as memory') ||
     normalized.includes('as impact') ||
-    normalized.includes('and maybe that’s the half-life of you')
+    normalized.includes('and maybe that’s the half-life of you') ||
+    normalized.includes('try being the fucking home') ||
+    normalized.includes('another wound dressed up as concern') ||
+    normalized.includes('i was a person') ||
+    normalized.includes('the river wore the moon') ||
+    normalized.includes('in the black water') ||
+    normalized.includes('you looked like death') ||
+    normalized.includes('cold inside my ribs') ||
+    normalized.includes('to the beautiful ruin')
   ) {
     return 'impact'
   }
