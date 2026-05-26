@@ -420,19 +420,19 @@
 
   25% {
     opacity: 0.95;
-    transform: scaleY(1.25) scaleX(0.75) rotate(10deg) translateX(4px);
+    transform: scaleY(1.25) scaleX(0.75) rotate(-10deg) translateX(4px);
     filter: blur(0.5px);
   }
 
   55% {
     opacity: 0.65;
-    transform: scaleY(0.65) scaleX(1.45) rotate(-18deg) translateX(-10px);
+    transform: scaleY(0.65) scaleX(1.45) rotate(18deg) translateX(12px);
     filter: blur(1px);
   }
 
   100% {
     opacity: 0;
-    transform: scaleY(0.08) scaleX(1.8) rotate(-28deg) translateX(-24px);
+    transform: scaleY(0.08) scaleX(1.8) rotate(28deg) translateX(28px);
     filter: blur(4px);
   }
 }
