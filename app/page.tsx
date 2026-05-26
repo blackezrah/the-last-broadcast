@@ -146,7 +146,7 @@ export default function TheLastBroadcastHomepage() {
             { title: "Your Love, Like Mold", href: "/broadcasts/your-love-like-mold" },
             { title: "Black Water Lullaby", href: "/broadcasts/black-water-lullaby" },
             { title: "Only the Dark Knows" },
-            { title: "The Shape of My Undoing" },
+            { title: "The Shape of My Undoing", href: "/broadcasts/the-shape-of-my-undoing" },
             { title: "Darkness, Familiar" },
           ].map((item, index) => {
             const content = (
