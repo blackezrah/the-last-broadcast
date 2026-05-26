@@ -32,9 +32,6 @@ export default function TheLastBroadcastHomepage() {
           <a href="#about" className="transition hover:text-white/70">
             About
           </a>
-          <a href="#archive" className="transition hover:text-white/70">
-            Archive
-          </a>
         </nav>
       </header>
 
