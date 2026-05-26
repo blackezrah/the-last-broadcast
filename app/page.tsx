@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { AmbientPoemLines } from "@/components/ambient-poem-lines"
 import { CandleFlame } from "@/components/candle-flame"
+import { HomeMobileReveal } from "@/components/home-mobile-motion"
 
 export default function TheLastBroadcastHomepage() {
   return (
@@ -82,7 +83,7 @@ export default function TheLastBroadcastHomepage() {
         id="broadcasts"
         className="relative z-10 border-t border-white/10 px-8 py-24 md:px-24"
       >
-        <div className="mb-16 flex items-end justify-between">
+        <HomeMobileReveal className="mb-16 flex items-end justify-between">
           <div>
             <div className="mb-4 text-[10px] uppercase tracking-[0.4em] text-white/30">
               Latest Transmission
@@ -96,10 +97,10 @@ export default function TheLastBroadcastHomepage() {
           <div className="hidden text-sm text-white/25 md:block">
             BROADCAST 001
           </div>
-        </div>
+        </HomeMobileReveal>
 
         <div className="grid gap-14 md:grid-cols-[1.2fr_0.8fr]">
-          <div className="max-w-[620px] space-y-8 text-lg leading-relaxed text-white/55">
+          <HomeMobileReveal className="max-w-[620px] space-y-8 text-lg leading-relaxed text-white/55" delay={0.08}>
             <p>
               There are nights I feel it breathing again. Not the memory.
               Something older. Something buried before language.
@@ -115,9 +116,9 @@ export default function TheLastBroadcastHomepage() {
   Enter Broadcast
   <span className="transition-transform group-hover:translate-x-1">→</span>
 </Link>
-          </div>
+          </HomeMobileReveal>
 
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.02] p-10 backdrop-blur-sm">
+          <HomeMobileReveal className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.02] p-10 backdrop-blur-sm" delay={0.16}>
             <div className="mb-8 text-[10px] uppercase tracking-[0.35em] text-white/25">
               Reader Echoes
             </div>
@@ -129,7 +130,7 @@ export default function TheLastBroadcastHomepage() {
               <p>“I’m 42 and this put words to something I’ve carried since I was a kid.”</p>
               <p>“@maria read this when you’re alone later”</p>
             </div>
-          </div>
+          </HomeMobileReveal>
         </div>
       </section>
 
@@ -138,9 +139,9 @@ export default function TheLastBroadcastHomepage() {
         id="archive"
         className="relative z-10 border-t border-white/10 px-8 py-24 md:px-24"
       >
-        <div className="mb-14 text-[10px] uppercase tracking-[0.4em] text-white/30">
+        <HomeMobileReveal className="mb-14 text-[10px] uppercase tracking-[0.4em] text-white/30">
           Archive
-        </div>
+        </HomeMobileReveal>
 
         <div className="grid gap-px overflow-hidden rounded-[2rem] border border-white/10 bg-white/10">
           {[
@@ -172,21 +173,21 @@ export default function TheLastBroadcastHomepage() {
               </>
             )
 
-            return item.href ? (
-              <Link
-                key={item.title}
-                href={item.href}
-                className="group flex items-center justify-between bg-[#070707] px-8 py-8 transition hover:bg-white/[0.03]"
-              >
-                {content}
-              </Link>
-            ) : (
-              <div
-                key={item.title}
-                className="group flex items-center justify-between bg-[#070707] px-8 py-8 transition hover:bg-white/[0.03]"
-              >
-                {content}
-              </div>
+            return (
+              <HomeMobileReveal key={item.title} delay={Math.min(index * 0.055, 0.32)}>
+                {item.href ? (
+                  <Link
+                    href={item.href}
+                    className="group flex items-center justify-between bg-[#070707] px-8 py-8 transition hover:bg-white/[0.03]"
+                  >
+                    {content}
+                  </Link>
+                ) : (
+                  <div className="group flex items-center justify-between bg-[#070707] px-8 py-8 transition hover:bg-white/[0.03]">
+                    {content}
+                  </div>
+                )}
+              </HomeMobileReveal>
             )
           })}
         </div>
