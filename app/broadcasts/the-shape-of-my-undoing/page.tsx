@@ -338,7 +338,7 @@ export default function Page() {
       <main className="editorial-page relative min-h-screen bg-background">
         <AtmosphericEffects />
         <Threadline />
-        <EngagementRail />
+        <EngagementRail broadcast="the-shape-of-my-undoing" />
         <BroadcastNav />
 
         <div className="editorial-content">
