@@ -281,6 +281,8 @@ const emptyIncrements: RealIncrements = {
 }
 
 function readJson<T>(key: string, fallback: T): T {
+  if (typeof window === 'undefined') return fallback
+
   try {
     const value = window.localStorage.getItem(key)
     return value ? (JSON.parse(value) as T) : fallback
@@ -344,35 +346,30 @@ export function EngagementRail({ broadcast = 'if-this-is-living' }: { broadcast?
   const preset = engagementPresets[broadcast]
   const storageKeys = useMemo(() => makeStorageKeys(broadcast), [broadcast])
   const ambientComments = useMemo(() => makeAmbientComments(broadcast), [broadcast])
-  const [mounted, setMounted] = useState(false)
-  const [increments, setIncrements] = useState<RealIncrements>(emptyIncrements)
-  const [actions, setActions] = useState<BrowserActions>({})
-  const [comments, setComments] = useState<LocalComment[]>([])
+  const [increments, setIncrements] = useState<RealIncrements>(() =>
+    readJson<RealIncrements>(storageKeys.increments, emptyIncrements)
+  )
+  const [actions, setActions] = useState<BrowserActions>(() =>
+    readJson<BrowserActions>(storageKeys.actions, {})
+  )
+  const [comments, setComments] = useState<LocalComment[]>(() =>
+    readJson<LocalComment[]>(storageKeys.comments, [])
+  )
   const [commentOpen, setCommentOpen] = useState(false)
   const [commentText, setCommentText] = useState('')
   const [shareCopied, setShareCopied] = useState(false)
 
   useEffect(() => {
-    setIncrements(readJson<RealIncrements>(storageKeys.increments, emptyIncrements))
-    setActions(readJson<BrowserActions>(storageKeys.actions, {}))
-    setComments(readJson<LocalComment[]>(storageKeys.comments, []))
-    setMounted(true)
-  }, [])
-
-  useEffect(() => {
-    if (!mounted) return
     window.localStorage.setItem(storageKeys.increments, JSON.stringify(increments))
-  }, [increments, mounted])
+  }, [increments, storageKeys.increments])
 
   useEffect(() => {
-    if (!mounted) return
     window.localStorage.setItem(storageKeys.actions, JSON.stringify(actions))
-  }, [actions, mounted])
+  }, [actions, storageKeys.actions])
 
   useEffect(() => {
-    if (!mounted) return
     window.localStorage.setItem(storageKeys.comments, JSON.stringify(comments))
-  }, [comments, mounted])
+  }, [comments, storageKeys.comments])
 
   const totals = useMemo(
     () => ({

@@ -1,4 +1,6 @@
 import Link from "next/link"
+import { AmbientPoemLines } from "@/components/ambient-poem-lines"
+import { CandleFlame } from "@/components/candle-flame"
 
 export default function TheLastBroadcastHomepage() {
   return (
@@ -8,6 +10,9 @@ export default function TheLastBroadcastHomepage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_60%)]" />
         <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_18%_24%,rgba(255,255,255,0.22)_0_0.7px,transparent_0.9px),radial-gradient(circle_at_72%_46%,rgba(255,255,255,0.16)_0_0.6px,transparent_0.85px),radial-gradient(circle_at_41%_78%,rgba(255,255,255,0.12)_0_0.5px,transparent_0.75px)] [background-size:38px_38px,54px_54px,29px_29px]" />
       </div>
+
+      <AmbientPoemLines />
+      <CandleFlame />
 
       {/* Spider Silk Thread */}
       <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-full w-px -translate-x-1/2 overflow-hidden">
@@ -40,10 +45,13 @@ export default function TheLastBroadcastHomepage() {
             Signals from the Quiet Parts of Being Human
           </div>
 
-          <h1 className="max-w-6xl font-serif text-[4rem] leading-[0.9] tracking-[-0.04em] text-white md:text-[8rem]">
-            The Last
-            <br />
-            Broadcast
+          <h1 className="ash-title max-w-6xl font-serif text-[4rem] leading-[0.9] tracking-[-0.04em] text-white md:text-[8rem]">
+            <span className="ash-title-line" data-text="The Last">
+              The Last
+            </span>
+            <span className="ash-title-line" data-text="Broadcast">
+              Broadcast
+            </span>
           </h1>
 
           <div className="mt-12 max-w-lg space-y-6 text-[1.05rem] leading-relaxed text-white/50 md:text-[1.2rem]">
