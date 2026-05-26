@@ -439,13 +439,13 @@
 
 @keyframes glowCollapse {
   0% {
-    opacity: 0.45;
+    opacity: 0.42;
     transform: scale(1);
   }
 
   100% {
     opacity: 0;
-    transform: scale(0.45);
+    transform: scale(0.35);
   }
 }
 
@@ -492,13 +492,41 @@
 
 .candle-flame-glow {
   position: absolute;
-  inset: -95px;
+  inset: -105px;
   border-radius: 999px;
   background:
-    radial-gradient(circle, rgba(255, 190, 90, 0.18), rgba(255, 120, 40, 0.07) 35%, transparent 70%);
-  filter: blur(28px);
-  animation: candleGlow 2.8s ease-in-out infinite;
+    radial-gradient(
+      circle,
+      rgba(255, 218, 145, 0.24) 0%,
+      rgba(255, 148, 54, 0.13) 30%,
+      rgba(130, 58, 18, 0.055) 52%,
+      transparent 74%
+    );
+  filter: blur(30px);
+  opacity: 0.38;
+  transform: scale(0.98);
+  animation: candleGlowPulse 2.35s ease-in-out infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
 }
+
+@keyframes candleGlowPulse {
+  0%, 100% {
+    opacity: 0.28;
+    transform: scale(0.92);
+  }
+
+  45% {
+    opacity: 0.46;
+    transform: scale(1.1);
+  }
+
+  68% {
+    opacity: 0.34;
+    transform: scale(1.02);
+  }
+}
+
 
 .candle-flame {
   position: relative;
@@ -523,12 +551,43 @@
 }
 
 .candle-flame-shell[data-state="extinguishing"] .candle-flame-glow {
-  animation: glowCollapse 700ms ease-out forwards;
+  position: absolute;
+  inset: -105px;
+  border-radius: 999px;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 218, 145, 0.24) 0%,
+      rgba(255, 148, 54, 0.13) 30%,
+      rgba(130, 58, 18, 0.055) 52%,
+      transparent 74%
+    );
+  filter: blur(30px);
+  opacity: 0.38;
+  transform: scale(0.98);
+  animation: candleGlowPulse 2.35s ease-in-out infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
 }
 
 .candle-flame-shell[data-state="extinguished"] .candle-flame-glow {
-  animation: none;
-  opacity: 0;
+  position: absolute;
+  inset: -105px;
+  border-radius: 999px;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 218, 145, 0.24) 0%,
+      rgba(255, 148, 54, 0.13) 30%,
+      rgba(130, 58, 18, 0.055) 52%,
+      transparent 74%
+    );
+  filter: blur(30px);
+  opacity: 0.38;
+  transform: scale(0.98);
+  animation: candleGlowPulse 2.35s ease-in-out infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
 }
 
 .smoke-trail {
@@ -566,8 +625,24 @@
 
   .candle-flame,
   .candle-flame-glow {
-    animation: none;
-  }
+  position: absolute;
+  inset: -105px;
+  border-radius: 999px;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 218, 145, 0.24) 0%,
+      rgba(255, 148, 54, 0.13) 30%,
+      rgba(130, 58, 18, 0.055) 52%,
+      transparent 74%
+    );
+  filter: blur(30px);
+  opacity: 0.38;
+  transform: scale(0.98);
+  animation: candleGlowPulse 2.35s ease-in-out infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
 
   .smoke-wisp {
     animation: none;
