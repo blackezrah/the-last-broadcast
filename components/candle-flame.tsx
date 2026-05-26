@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 
 const EXTINGUISH_SCROLL_Y = 64
 const RESET_SCROLL_Y = 10
+const MOBILE_EXTINGUISH_DELAY_MS = 1850
 const EXTINGUISH_DURATION_MS = 2900
 type FlameState = 'lit' | 'extinguishing' | 'extinguished'
 
@@ -21,6 +22,9 @@ export function CandleFlame() {
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
+    const mobileQuery = window.matchMedia('(max-width: 767px)')
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+
     const clearExtinguishTimeout = () => {
       if (timeoutRef.current) {
         window.clearTimeout(timeoutRef.current)
@@ -28,7 +32,25 @@ export function CandleFlame() {
       }
     }
 
+    const triggerExtinguish = () => {
+      setFlameState((current) => {
+        if (current !== 'lit') return current
+
+        clearExtinguishTimeout()
+        timeoutRef.current = window.setTimeout(() => {
+          setFlameState('extinguished')
+          timeoutRef.current = null
+        }, EXTINGUISH_DURATION_MS)
+
+        return 'extinguishing'
+      })
+    }
+
+    let mobileDelay: ReturnType<typeof setTimeout> | null = null
+
     const handleScroll = () => {
+      if (mobileQuery.matches) return
+
       const scrollY = window.scrollY
 
       setFlameState((current) => {
@@ -37,25 +59,36 @@ export function CandleFlame() {
           return 'lit'
         }
 
-        if (scrollY > EXTINGUISH_SCROLL_Y && current === 'lit') {
-          clearExtinguishTimeout()
-          timeoutRef.current = window.setTimeout(() => {
-            setFlameState('extinguished')
-            timeoutRef.current = null
-          }, EXTINGUISH_DURATION_MS)
-          return 'extinguishing'
-        }
-
         return current
       })
+
+      if (scrollY > EXTINGUISH_SCROLL_Y) triggerExtinguish()
     }
 
+    const scheduleMobileExtinguish = () => {
+      if (mobileDelay) {
+        window.clearTimeout(mobileDelay)
+        mobileDelay = null
+      }
+
+      if (!mobileQuery.matches || reducedMotionQuery.matches) return
+
+      setFlameState('lit')
+      mobileDelay = window.setTimeout(triggerExtinguish, MOBILE_EXTINGUISH_DELAY_MS)
+    }
+
+    scheduleMobileExtinguish()
     handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
+    mobileQuery.addEventListener('change', scheduleMobileExtinguish)
+    reducedMotionQuery.addEventListener('change', scheduleMobileExtinguish)
 
     return () => {
+      if (mobileDelay) window.clearTimeout(mobileDelay)
       clearExtinguishTimeout()
       window.removeEventListener('scroll', handleScroll)
+      mobileQuery.removeEventListener('change', scheduleMobileExtinguish)
+      reducedMotionQuery.removeEventListener('change', scheduleMobileExtinguish)
     }
   }, [])
 
@@ -78,6 +111,10 @@ export function CandleFlame() {
             } as React.CSSProperties}
           />
         ))}
+      </div>
+      <div className="mobile-smoke-title" aria-hidden="true">
+        <span>The Last</span>
+        <span>Broadcast</span>
       </div>
     </div>
   )

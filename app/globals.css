@@ -572,6 +572,167 @@
   animation: smokeDrift 2200ms ease-out var(--smoke-delay) forwards;
 }
 
+.mobile-smoke-title {
+  display: none;
+}
+
+@keyframes mobileSmokeTitleReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 34px, 0) scale(0.96);
+    filter: blur(18px);
+    letter-spacing: 0.08em;
+  }
+
+  28% {
+    opacity: 0.08;
+    filter: blur(14px);
+  }
+
+  62% {
+    opacity: 0.48;
+    transform: translate3d(-50%, -8px, 0) scale(1);
+    filter: blur(4px);
+    letter-spacing: 0.02em;
+  }
+
+  100% {
+    opacity: 0.82;
+    transform: translate3d(-50%, -18px, 0) scale(1);
+    filter: blur(0.7px);
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .homePage {
+    background: #020202;
+  }
+
+  .homeAtmosphere {
+    opacity: 0.025;
+  }
+
+  .ambientPoemLines,
+  .homeThread,
+  .homeHeroFragment,
+  .homeHeroEyebrow,
+  .homeHeroDescription {
+    display: none;
+  }
+
+  .homeNav {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 20;
+    padding: 1rem 1.15rem;
+  }
+
+  .homeNav > div {
+    max-width: 11rem;
+    color: rgba(235, 235, 225, 0.22);
+    font-size: 0.58rem;
+    line-height: 1.4;
+  }
+
+  .homeNav nav {
+    gap: 1.1rem;
+    font-size: 0.68rem;
+    color: rgba(235, 235, 225, 0.28);
+  }
+
+  .homeHero {
+    min-height: 100svh;
+    padding: 0;
+  }
+
+  .homeHeroCopy {
+    pointer-events: none;
+  }
+
+  .homeHero .ash-title {
+    opacity: 0;
+  }
+
+  .candle-flame-shell {
+    top: 50svh;
+    left: 50%;
+    z-index: 8;
+    opacity: 0.96;
+    transform: translate(-50%, -50%);
+    transition: opacity 900ms ease, transform 900ms ease;
+  }
+
+  .candle-flame-shell[data-state="extinguished"] {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  .candle-flame {
+    width: clamp(34px, 11vw, 50px);
+    height: clamp(78px, 23vw, 108px);
+  }
+
+  .candle-flame-glow {
+    inset: -118px;
+    filter: blur(32px);
+    background:
+      radial-gradient(
+        circle,
+        rgba(255, 205, 120, 0.22) 0%,
+        rgba(255, 130, 45, 0.11) 28%,
+        rgba(120, 55, 20, 0.05) 48%,
+        transparent 74%
+      );
+  }
+
+  .smoke-trail {
+    top: -8%;
+  }
+
+  .smoke-wisp {
+    background:
+      radial-gradient(ellipse, rgba(166, 166, 166, 0.2), rgba(82, 82, 82, 0.09) 44%, transparent 74%);
+  }
+
+  .mobile-smoke-title {
+    position: absolute;
+    top: -10.5rem;
+    left: 50%;
+    display: grid;
+    min-width: min(82vw, 22rem);
+    gap: 0.1em;
+    color: rgba(245, 245, 238, 0.86);
+    font-family: var(--font-serif);
+    font-size: clamp(3.35rem, 15vw, 4.65rem);
+    font-weight: 300;
+    line-height: 0.88;
+    text-align: center;
+    text-shadow:
+      0 0 18px rgba(205, 205, 195, 0.08),
+      0 0 54px rgba(160, 160, 150, 0.05);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(-50%, 34px, 0) scale(0.96);
+    filter: blur(18px);
+    mix-blend-mode: screen;
+  }
+
+  .mobile-smoke-title span {
+    display: block;
+  }
+
+  .candle-flame-shell[data-state="extinguishing"] .mobile-smoke-title {
+    animation: mobileSmokeTitleReveal 3200ms ease-out 520ms forwards;
+  }
+
+  .candle-flame-shell[data-state="extinguished"] .mobile-smoke-title {
+    opacity: 0.82;
+    transform: translate3d(-50%, -18px, 0) scale(1);
+    filter: blur(0.7px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ash-title-line::after {
     animation: none;
@@ -595,6 +756,38 @@
   .candle-flame-shell[data-state="extinguishing"],
   .candle-flame-shell[data-state="extinguished"] {
     opacity: 0;
+  }
+
+  @media (max-width: 767px) {
+    .homeHero .ash-title {
+      opacity: 0;
+    }
+
+    .candle-flame-shell,
+    .candle-flame-shell[data-state="extinguishing"],
+    .candle-flame-shell[data-state="extinguished"] {
+      opacity: 0.82;
+      transform: translate(-50%, -50%);
+    }
+
+    .candle-flame-shell[data-state="extinguishing"] .candle-flame,
+    .candle-flame-shell[data-state="extinguished"] .candle-flame {
+      opacity: 0.72;
+    }
+
+    .candle-flame-shell[data-state="extinguishing"] .candle-flame-glow,
+    .candle-flame-shell[data-state="extinguished"] .candle-flame-glow {
+      opacity: 0.28;
+    }
+
+    .mobile-smoke-title,
+    .candle-flame-shell[data-state="extinguishing"] .mobile-smoke-title,
+    .candle-flame-shell[data-state="extinguished"] .mobile-smoke-title {
+      animation: none;
+      opacity: 0.78;
+      transform: translate3d(-50%, -18px, 0) scale(1);
+      filter: blur(0.7px);
+    }
   }
 }
 

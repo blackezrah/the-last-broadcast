@@ -4,9 +4,9 @@ import { CandleFlame } from "@/components/candle-flame"
 
 export default function TheLastBroadcastHomepage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-[#f3f3f0] selection:bg-white/10">
+    <main className="homePage relative min-h-screen overflow-hidden bg-[#050505] text-[#f3f3f0] selection:bg-white/10">
       {/* Atmospheric Background */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-screen">
+      <div className="homeAtmosphere pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-screen">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_60%)]" />
         <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_18%_24%,rgba(255,255,255,0.22)_0_0.7px,transparent_0.9px),radial-gradient(circle_at_72%_46%,rgba(255,255,255,0.16)_0_0.6px,transparent_0.85px),radial-gradient(circle_at_41%_78%,rgba(255,255,255,0.12)_0_0.5px,transparent_0.75px)] [background-size:38px_38px,54px_54px,29px_29px]" />
       </div>
@@ -15,12 +15,12 @@ export default function TheLastBroadcastHomepage() {
       <CandleFlame />
 
       {/* Spider Silk Thread */}
-      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-full w-px -translate-x-1/2 overflow-hidden">
+      <div className="homeThread pointer-events-none absolute left-1/2 top-0 z-0 h-full w-px -translate-x-1/2 overflow-hidden">
         <div className="absolute left-1/2 top-0 h-full w-[1px] -translate-x-1/2 bg-gradient-to-b from-white/0 via-white/20 to-white/0 blur-[0.4px] animate-pulse" />
       </div>
 
       {/* Navigation */}
-      <header className="relative z-20 flex items-center justify-between px-8 py-8 md:px-16">
+      <header className="homeNav relative z-20 flex items-center justify-between px-8 py-8 md:px-16">
         <div className="tracking-[0.35em] text-[11px] uppercase text-white/40">
           The Last Broadcast
         </div>
@@ -36,9 +36,9 @@ export default function TheLastBroadcastHomepage() {
       </header>
 
       {/* Hero */}
-      <section className="relative z-10 flex min-h-[90vh] flex-col justify-center px-8 pb-24 pt-10 md:px-24">
-        <div className="max-w-5xl">
-          <div className="mb-8 text-[10px] uppercase tracking-[0.4em] text-white/30">
+      <section className="homeHero relative z-10 flex min-h-[90vh] flex-col justify-center px-8 pb-24 pt-10 md:px-24">
+        <div className="homeHeroCopy max-w-5xl">
+          <div className="homeHeroEyebrow mb-8 text-[10px] uppercase tracking-[0.4em] text-white/30">
             Signals from the Quiet Parts of Being Human
           </div>
 
@@ -51,7 +51,7 @@ export default function TheLastBroadcastHomepage() {
             </span>
           </h1>
 
-          <div className="mt-12 max-w-lg space-y-6 text-[1.05rem] leading-relaxed text-white/50 md:text-[1.2rem]">
+          <div className="homeHeroDescription mt-12 max-w-lg space-y-6 text-[1.05rem] leading-relaxed text-white/50 md:text-[1.2rem]">
             <p>
               A cinematic archive of emotional wreckage, midnight thoughts,
               memory fragments, and the quiet architecture of survival.
@@ -64,15 +64,15 @@ export default function TheLastBroadcastHomepage() {
         </div>
 
         {/* Floating Fragments */}
-        <div className="pointer-events-none absolute left-[43%] top-[24%] text-white/10 blur-[0.2px]">
+        <div className="homeHeroFragment pointer-events-none absolute left-[43%] top-[24%] text-white/10 blur-[0.2px]">
           “I tell myself I’m fine.”
         </div>
 
-        <div className="pointer-events-none absolute right-[16%] top-[38%] text-white/10 blur-[0.2px]">
+        <div className="homeHeroFragment pointer-events-none absolute right-[16%] top-[38%] text-white/10 blur-[0.2px]">
           “Only the dark knows.”
         </div>
 
-        <div className="pointer-events-none absolute bottom-[14%] left-[28%] text-white/10 blur-[0.2px]">
+        <div className="homeHeroFragment pointer-events-none absolute bottom-[14%] left-[28%] text-white/10 blur-[0.2px]">
           “there is still someone in here.”
         </div>
       </section>
