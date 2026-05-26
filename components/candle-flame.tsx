@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 
 const EXTINGUISH_SCROLL_Y = 64
 const RESET_SCROLL_Y = 10
-const MOBILE_EXTINGUISH_DELAY_MS = 1850
+const MOBILE_EXTINGUISH_DELAY_MS = 2600
 const EXTINGUISH_DURATION_MS = 2900
 type FlameState = 'lit' | 'extinguishing' | 'extinguished'
 
@@ -113,6 +113,8 @@ export function CandleFlame() {
         ))}
       </div>
       <div className="mobile-smoke-title" aria-hidden="true">
+        <span className="mobile-title-smoke mobile-title-smoke-a" />
+        <span className="mobile-title-smoke mobile-title-smoke-b" />
         <span>The Last</span>
         <span>Broadcast</span>
       </div>

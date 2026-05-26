@@ -12,7 +12,6 @@ export default function TheLastBroadcastHomepage() {
       </div>
 
       <AmbientPoemLines />
-      <CandleFlame />
 
       {/* Spider Silk Thread */}
       <div className="homeThread pointer-events-none absolute left-1/2 top-0 z-0 h-full w-px -translate-x-1/2 overflow-hidden">
@@ -37,6 +36,8 @@ export default function TheLastBroadcastHomepage() {
 
       {/* Hero */}
       <section className="homeHero relative z-10 flex min-h-[90vh] flex-col justify-center px-8 pb-24 pt-10 md:px-24">
+        <CandleFlame />
+
         <div className="homeHeroCopy max-w-5xl">
           <div className="homeHeroEyebrow mb-8 text-[10px] uppercase tracking-[0.4em] text-white/30">
             Signals from the Quiet Parts of Being Human
