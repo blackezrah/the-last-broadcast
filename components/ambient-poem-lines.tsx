@@ -80,6 +80,19 @@ const ambientLineGroups = [
     ],
   },
   {
+    title: 'Only the Darkness Knows',
+    lines: [
+      'It started as a pressure',
+      'behind the waking eye,',
+      'My chest became a factory',
+      'where mercy went to rust,',
+      'I became a canceled signal,',
+      'a station without range,',
+      'Only the darkness knows.',
+      'and it speaks in low voltage:',
+    ],
+  },
+  {
     title: 'The Shape of My Undoing',
     lines: [
       'I have carried grief like iron in my throat,',

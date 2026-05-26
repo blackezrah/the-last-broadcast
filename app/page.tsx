@@ -150,7 +150,7 @@ export default function TheLastBroadcastHomepage() {
             { title: "The Trespass", href: "/broadcasts/the-trespass" },
             { title: "Your Love, Like Mold", href: "/broadcasts/your-love-like-mold" },
             { title: "Black Water Lullaby", href: "/broadcasts/black-water-lullaby" },
-            { title: "Only the Dark Knows" },
+            { title: "Only the Darkness Knows", href: "/broadcasts/only-the-darkness-knows" },
             { title: "The Shape of My Undoing", href: "/broadcasts/the-shape-of-my-undoing" },
             { title: "Darkness, Familiar" },
           ].map((item, index) => {

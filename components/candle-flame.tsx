@@ -8,12 +8,12 @@ const EXTINGUISH_DURATION_MS = 2900
 type FlameState = 'lit' | 'extinguishing' | 'extinguished'
 
 const smokeWisps = [
-  { xMid: '10px', xEnd: '34px', delay: '80ms', width: '30px', height: '68px', opacity: '0.19' },
-  { xMid: '8px', xEnd: '28px', delay: '180ms', width: '24px', height: '58px', opacity: '0.15' },
-  { xMid: '2px', xEnd: '12px', delay: '300ms', width: '38px', height: '76px', opacity: '0.17' },
-  { xMid: '15px', xEnd: '42px', delay: '430ms', width: '22px', height: '64px', opacity: '0.13' },
-  { xMid: '18px', xEnd: '48px', delay: '540ms', width: '28px', height: '72px', opacity: '0.12' },
-  { xMid: '4px', xEnd: '18px', delay: '660ms', width: '34px', height: '82px', opacity: '0.11' },
+  { xMid: '18px', xEnd: '54px', delay: '80ms', width: '30px', height: '68px', opacity: '0.19' },
+  { xMid: '26px', xEnd: '76px', delay: '180ms', width: '24px', height: '58px', opacity: '0.15' },
+  { xMid: '34px', xEnd: '90px', delay: '300ms', width: '38px', height: '76px', opacity: '0.17' },
+  { xMid: '22px', xEnd: '62px', delay: '430ms', width: '22px', height: '64px', opacity: '0.13' },
+  { xMid: '30px', xEnd: '82px', delay: '540ms', width: '28px', height: '72px', opacity: '0.12' },
+  { xMid: '16px', xEnd: '48px', delay: '660ms', width: '34px', height: '82px', opacity: '0.11' },
 ]
 
 export function CandleFlame() {
