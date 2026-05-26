@@ -54,12 +54,11 @@ export default function TheLastBroadcastHomepage() {
 
           <div className="homeHeroDescription mt-12 max-w-lg space-y-6 text-[1.05rem] leading-relaxed text-white/50 md:text-[1.2rem]">
             <p>
-              A cinematic archive of emotional wreckage, midnight thoughts,
-              memory fragments, and the quiet architecture of survival.
+              The archive begins where explanation fails.
             </p>
 
             <p className="italic text-white/30">
-              Some things are easier to transmit through darkness.
+              Some broadcasts are only heard after everything goes quiet.
             </p>
           </div>
         </div>
