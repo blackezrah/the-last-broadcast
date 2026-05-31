@@ -162,12 +162,13 @@ export function CandleFlame() {
         aria-hidden="true"
         initial={false}
         animate={
-          flameState !== 'lit' && !hasScrolled && !prefersReducedMotion
-            ? { opacity: 1, y: 0, filter: "blur(0px)" }
-            : { opacity: 0, y: 6, filter: "blur(4px)" }
+          !hasScrolled
+            ? { opacity: flameState === 'lit' ? 0.72 : 1, x: "-50%", y: 0, filter: "blur(0px)" }
+            : { opacity: 0, x: "-50%", y: 8, filter: "blur(4px)" }
         }
-        transition={{ duration: 1.2, delay: flameState === 'extinguishing' ? 2.4 : 0, ease: [0.22, 1, 0.36, 1] }}
+        transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.9, delay: flameState === 'extinguishing' ? 0.35 : 0, ease: [0.22, 1, 0.36, 1] }}
       >
+        <strong>Begin Transmission</strong>
         <span />
       </motion.div>
     </>

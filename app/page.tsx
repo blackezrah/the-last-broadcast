@@ -2,10 +2,11 @@ import Link from "next/link"
 import { AmbientPoemLines } from "@/components/ambient-poem-lines"
 import { CandleFlame } from "@/components/candle-flame"
 import { HomeMobileReveal } from "@/components/home-mobile-motion"
+import { MobileHeroAtmosphere } from "@/components/mobile-hero-atmosphere"
 
 export default function TheLastBroadcastHomepage() {
   return (
-    <main className="homePage relative min-h-screen overflow-hidden bg-[#050505] text-[#f3f3f0] selection:bg-white/10">
+    <main className="homePage relative min-h-screen overflow-x-hidden bg-[#050505] text-[#f3f3f0] selection:bg-white/10">
       {/* Atmospheric Background */}
       <div className="homeAtmosphere pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-screen">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_60%)]" />
@@ -37,6 +38,7 @@ export default function TheLastBroadcastHomepage() {
 
       {/* Hero */}
       <section className="homeHero relative z-10 flex min-h-[90vh] flex-col justify-center px-8 pb-24 pt-10 md:px-24">
+        <MobileHeroAtmosphere />
         <CandleFlame />
 
         <div className="homeHeroCopy max-w-5xl">
